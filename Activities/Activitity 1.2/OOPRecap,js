@@ -1,0 +1,96 @@
+class User {
+    #id;
+
+    constructor(name, id) {
+        this.name = name;
+        this.#id = id;
+    }
+
+    getName() {
+        return this.name;
+    }
+
+    getRole() {
+        return "User";
+    }
+
+    getId() {
+        return this.#id;
+    }
+}
+
+class Student extends User {
+    constructor(name, id, course) {
+        super(name, id);
+        this.course = course;
+    }
+
+    getCourse() {
+        return this.course;
+    }
+
+    getRole() {
+        return "Student";
+    }
+}
+
+class Teacher extends Student {
+    getRole() {
+        return "Teacher";
+    }
+}
+
+class Admin extends User {
+    getRole() {
+        return "Admin";
+    }
+}
+
+let students = ["Theo", "Jenn", "Dasal"];
+let courses = ["BSCS", "BSIT", "BSED"];
+let numbers = [10, 20, 30];
+
+let student1 = new Student("Theo", 101, "BSCS");
+let teacher1 = new Teacher("Mr. Yuri", 102, "BSCS");
+
+let school = {
+    name: "Northwest Samar State University",
+    location: "Calbayog City"
+};
+
+let subject = {
+    name: "Object Oriented Programming",
+    units: 3
+};
+
+let total = 0;
+
+for (let i = 0; i < students.length; i++) {
+    console.log(students[i]);
+}
+
+for (let i = 0; i < courses.length; i++) {
+    console.log(courses[i]);
+}
+
+for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+}
+
+if (student1.getCourse() === "BSCS") {
+    console.log("Computer Science Student");
+}
+
+if (total > 50) {
+    console.log("Total is greater than 50");
+}
+
+if (student1.getId() === 101) {
+    console.log("ID verified");
+}
+
+console.log(student1.getName());
+console.log(student1.getRole());
+console.log(teacher1.getRole());
+console.log(school.name);
+console.log(subject.name);
